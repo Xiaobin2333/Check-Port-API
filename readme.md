@@ -18,6 +18,22 @@
 
 1. 下载 `check.php` 上传到 PHP 环境服务器中
 
+2. 配置URL重写(可选，如不配置请求时可能需要添加.php后缀)
+
+	**在Apache上**
+
+	您可能需要启用mod_rewrite并.htaccess在站点配置中设置文件。
+
+	**在Nginx上**
+
+	请将以下内容放入配置文件中：
+
+```
+location /check {
+    rewrite ^/check$ /check.php break;
+}
+```
+
 ## API
 
 ### 接口说明

@@ -23,7 +23,7 @@ def tcping(server, port):
         with HiddenPrints():
             ping.ping(4)
     except Exception as e:
-        return None
+        return False
     rate = Ping._success_rate(ping)
     if float(rate) > 0:
         return True
@@ -37,9 +37,7 @@ def check():
     if server is None or port is None:
         return "server or port is None", 400
     result = tcping(server, port)
-    if result is None:
-        return "Error", 500
-    elif result:
+    if result:
         return "True", 200
     else:
         return 'False', 200

@@ -23,10 +23,4 @@ else {
 }
 
 
-if ($errno) {
-  http_response_code(500);
-  die('Error');
-}
-
-
 ?>
